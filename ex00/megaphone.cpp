@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:37:34 by amakela           #+#    #+#             */
-/*   Updated: 2024/07/29 23:37:38 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/01 16:24:42 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int main(int argc, char **argv)
     else {
         for (int i = 1; argv[i]; i++) {
             for (int j = 0; argv[i][j]; j++) {
-                if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
-                    argv[i][j] -= 32;
-                std::cout << argv[i][j];
+				argv[i][j] = std::toupper(argv[i][j]);
             }
+            std::cout << argv[i];
         }
         std::cout << std::endl;
     }
