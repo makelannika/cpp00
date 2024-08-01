@@ -6,13 +6,13 @@
 #    By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 23:37:26 by amakela           #+#    #+#              #
-#    Updated: 2024/07/30 14:11:20 by amakela          ###   ########.fr        #
+#    Updated: 2024/08/01 21:52:44 by amakela          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	phonebook
 
-CPPFILES	=	src/phoneBook.cpp
+CPPFILES	=	src/phonebook.cpp
 
 OFILES		=	$(CPPFILES:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:37:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/07/30 22:31:04 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/01 19:08:17 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ class   PhoneBook {
 	public:
         Contact contacts[8];
 
-		void    getContacts() {
+		void    getContacts(int count) {
 			std::string	info;
 			
-			for (int i = 0; i < 8; i++) {
-				std::cout << std::setw(11) << i << "|";
+			for (int i = 0; i < count; i++) {
+				std::cout << std::setw(11) << i + 1 << "|";
 				info = contacts[i].getInfo("firstName");
 				info = truncInfo(info);
 				std::cout << std::setw(11) << info;
