@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:37:18 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 13:35:04 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:16:33 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 
 class   PhoneBook {
     private:
-		std::string	truncInfo(std::string info);
+        Contact contacts[8];
+		
+		std::string	trunc_info(std::string info);
 		
 	public:
-        Contact contacts[8];
-
 		void    get_contacts(int count);
 		void    get_contact(int idx);
+		int		add_contact_info(std::string type, std::string info, int idx);
 };
 
 #endif

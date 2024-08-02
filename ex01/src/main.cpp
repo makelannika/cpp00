@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:03 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 14:22:59 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 15:26:31 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,43 @@
 #include <limits>
 #include "../include/PhoneBook.hpp"
 
+void	add_info(PhoneBook &phonebook, std::string type, int idx)
+{
+	std::string input;
+	
+	while (true) {
+		std::cout << "Enter " << type << ": ";
+		std::getline(std::cin, input);
+		if (type == "first name") {
+			if (!phonebook.add_contact_info(type, input, idx))
+				return ;
+		} else if (type == "last name") {
+			if (!phonebook.add_contact_info(type, input, idx))
+				return ;
+		} else if (type == "nickname") {
+			if (!phonebook.add_contact_info(type, input, idx))
+				return ;
+		} else if (type == "darkest secret") {
+			if (!phonebook.add_contact_info(type, input, idx))
+				return ;
+		} else if (type == "number") {
+			if (!phonebook.add_contact_info(type, input, idx))
+				return ;
+		}
+	}
+}
+
 void	add(PhoneBook &phonebook, int &i)
 {	
 	std::string input;
-	int			idx = i % 8;
-	while (true) {
-		std::cout << "Enter first name: ";
-		std::getline(std::cin,input);
-		if (!phonebook.contacts[idx].set_name("firstName", input))
-			break ;
-	}
-	while (true) {
-		std::cout << "Enter last name: ";
-		std::getline(std::cin,input);
-		if (!phonebook.contacts[idx].set_name("lastName", input))
-			break ;
-	}
-	while (true) {
-		std::cout << "Enter nickname: ";
-		std::getline(std::cin,input);
-		if (!phonebook.contacts[idx].set_name("nickName", input))
-			break ;
-	}
-	while (true) {
-		std::cout << "Enter darkest secret: ";
-		std::getline(std::cin,input);
-		if (!phonebook.contacts[idx].set_name("darkestSecret", input))
-			break ;
-	}
-	while (true) {
-		std::cout << "Enter number: ";
-		std::getline(std::cin,input);
-		if (!phonebook.contacts[idx].set_number(input))
-			break ;
-	}
+	int			idx;
+	
+	idx = i % 8;
+	add_info(phonebook, "first name", idx);
+	add_info(phonebook, "last name", idx);
+	add_info(phonebook, "nickname", idx);
+	add_info(phonebook, "darkest secret", idx);
+	add_info(phonebook, "number", idx);
 	std::cout << std::endl;
 	i++;
 }
