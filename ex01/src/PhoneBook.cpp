@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:37:21 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 15:43:05 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 20:38:12 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ std::string	PhoneBook::trunc_info(std::string info)
 void    PhoneBook::get_contacts(int count)
 {
 	std::string	info;
-	
+
 	for (int i = 0; i < count; i++) {
 		std::cout << std::setw(11) << i + 1 << "|";
-		info = contacts[i].get_info("firstName");
+		info = contacts[i].get_info("first name");
 		info = trunc_info(info);
 		std::cout << std::setw(11) << info;
-		info = contacts[i].get_info("lastName");
+		info = contacts[i].get_info("last name");
 		info = trunc_info(info);
 		std::cout << std::setw(11) << info ;
-		info = contacts[i].get_info("nickName");
+		info = contacts[i].get_info("nickname");
 		info = trunc_info(info);
 		std::cout << std::setw(11) << info << std::endl;
 	}

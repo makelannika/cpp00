@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:05 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 15:36:23 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 16:13:55 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	Contact::set_info(std::string type, std::string info) 
 {
-	if (info.empty()) {
+	if (info.empty() || info.find_first_not_of(" \t\n\v\f\r") == std::string::npos) {
 		return (1);
 	}
 	if (type == "first name")
