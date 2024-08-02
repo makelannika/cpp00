@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:03 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 23:10:19 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 23:17:28 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	search(PhoneBook phonebook, int &i)
 		std::getline(std::cin,input);
 		if (std::cin.eof())
 			return (1);
-		if (!input.empty() && input.find_first_not_of("0123456789") == std::string::npos) {
+		if (!input.empty() && input.find_first_not_of("12345678") == std::string::npos) {
 			idx = stoi(input);
-			if (idx >= 1 && idx <= contacts) {
+			if (idx <= contacts) {
 				phonebook.get_contact(idx - 1);
 				std::cout << std::endl;
 				return (0);
