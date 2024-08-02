@@ -1,42 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 23:37:21 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/01 21:59:38 by amakela          ###   ########.fr       */
+/*   Created: 2024/08/02 13:11:03 by amakela           #+#    #+#             */
+/*   Updated: 2024/08/02 13:39:28 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <limits>
-#include "../include/phonebook.hpp"
+#include "../include/PhoneBook.hpp"
 
 void	add(PhoneBook &phonebook, int &i) {
 	
 	std::string input;
 	int			idx = i % 7;
-	std::cout << "Enter first name: ";
-	std::getline (std::cin,input);
-	phonebook.contacts[idx].setInfo("firstName", input);;
-	std::cout << "Enter last name: ";
-	std::getline (std::cin,input);
-	phonebook.contacts[idx].setInfo("lastName", input);
-	std::cout << "Enter nickname: ";
-	std::getline (std::cin,input);
-	phonebook.contacts[idx].setInfo("nickName", input);
-	std::cout << "Enter darkest secret: ";
-	std::getline (std::cin,input);
-	phonebook.contacts[idx].setInfo("darkestSecret", input);
+	while (true) {
+		std::cout << "Enter first name: ";
+		std::getline (std::cin,input);
+		if (!phonebook.contacts[idx].set_name("firstName", input))
+			break ;
+	}
+	while (true) {
+		std::cout << "Enter last name: ";
+		std::getline (std::cin,input);
+		if (!phonebook.contacts[idx].set_name("lastName", input))
+			break ;
+	}
+	while (true) {
+		std::cout << "Enter nickname: ";
+		std::getline (std::cin,input);
+		if (!phonebook.contacts[idx].set_name("nickName", input))
+			break ;
+	}
+	while (true) {
+		std::cout << "Enter darkest secret: ";
+		std::getline (std::cin,input);
+		if (!phonebook.contacts[idx].set_name("darkestSecret", input))
+			break ;
+	}
 	while (true) {
 		std::cout << "Enter number: ";
 		std::getline (std::cin,input);
-		if (!input.empty() && input.find_first_not_of("0123456789") == std::string::npos) {
-			phonebook.contacts[idx].setInfo("number", input);
+		if (!phonebook.contacts[idx].set_number(input))
 			break ;
-		}
 	}
 	std::cout << std::endl;
 	i++;
@@ -48,14 +58,14 @@ void	search(PhoneBook phonebook, int &i) {
 	int			contacts = i % 7;
 	int			idx;
 	
-	phonebook.getContacts(contacts);
+	phonebook.get_contacts(contacts);
 	while (true) {
 		std::cout << "Enter the index of the contact you want to view: ";
 		std::getline (std::cin,input);
 		if (!input.empty() && input.find_first_not_of("12345678") == std::string::npos) {
 			idx = stoi(input);
 			if (idx >= 1 && idx <= contacts) {
-				phonebook.getContact(idx - 1);
+				phonebook.get_contact(idx - 1);
 				std::cout << std::endl;
 				return ;
 			}
