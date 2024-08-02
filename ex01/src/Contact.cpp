@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:05 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 16:13:55 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 23:07:09 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ std::string Contact::get_info(std::string type)
 		return (lastName);
 	else if (type == "nickname")
 		return (nickname);
-	else if (type == "darkest secret")
-		return (darkestSecret);
 	else if (type == "number")
 		return (number);
+	else if (type == "darkest secret")
+		return (darkestSecret);
 	return (NULL);
 }

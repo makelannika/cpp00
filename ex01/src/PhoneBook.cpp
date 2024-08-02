@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 23:37:21 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 20:38:12 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 23:08:21 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void    PhoneBook::get_contact(int idx)
 	std::cout << contacts[idx].get_info("first name") << std::endl;
 	std::cout << contacts[idx].get_info("last name") << std::endl;
 	std::cout << contacts[idx].get_info("nickname") << std::endl;
-	std::cout << contacts[idx].get_info("darkest secret") << std::endl;
 	std::cout << contacts[idx].get_info("number") << std::endl;
+	std::cout << contacts[idx].get_info("darkest secret") << std::endl;
 }
 
 int	PhoneBook::add_contact_info(std::string type, std::string info, int idx)

@@ -6,7 +6,7 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:03 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 21:35:02 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/02 23:10:19 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	add(PhoneBook &phonebook, int &i)
 		return (1);
 	if (add_info(phonebook, "nickname", idx))
 		return (1);
-	if (add_info(phonebook, "darkest secret", idx))
-		return (1);
 	if (add_info(phonebook, "number", idx))
+		return (1);
+	if (add_info(phonebook, "darkest secret", idx))
 		return (1);
 	std::cout << std::endl;
 	i++;
@@ -102,7 +102,7 @@ void	menu(void)
 	std::cout << std::endl;
 	std::cout << "OPTIONS:" << std::endl;
 	std::cout << "ADD    - add a contact" << std::endl;
-	std::cout << "SEARCH - search for contacts" << std::endl;
+	std::cout << "SEARCH - view contacts" << std::endl;
 	std::cout << "EXIT   - close phone book" << std::endl;
 	std::cout << std::endl;
 }
