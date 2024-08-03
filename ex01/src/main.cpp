@@ -6,12 +6,11 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:03 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 23:17:28 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/03 16:09:16 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <limits>
 #include "../include/PhoneBook.hpp"
 
 int	add_info(PhoneBook &phonebook, std::string type, int idx)
@@ -69,13 +68,12 @@ int	search(PhoneBook phonebook, int &i)
 	int			contacts;
 	int			idx;
 	
-	if (i > 8)
-		contacts = 8;
-	else
+	if (i < 8)
 		contacts = i;
+	else
+		contacts = 8;
 	if (!contacts) {
-		std::cout << "Phone book is empty" << std::endl;
-		std::cout << std::endl;
+		std::cout << "Phone book is empty" << std::endl << std::endl;
 		return (0);
 	}
 	phonebook.get_contacts(contacts);
@@ -84,27 +82,26 @@ int	search(PhoneBook phonebook, int &i)
 		std::getline(std::cin,input);
 		if (std::cin.eof())
 			return (1);
-		if (!input.empty() && input.find_first_not_of("12345678") == std::string::npos) {
+		if (!input.empty() && input.find_first_not_of("0123456789") == std::string::npos) {
 			idx = stoi(input);
-			if (idx <= contacts) {
+			if (idx >= 1 && idx <= contacts) {
 				phonebook.get_contact(idx - 1);
 				std::cout << std::endl;
 				return (0);
-			}
-		}
+			} else 
+				std::cout << "contact at index " << idx  << " does not exist" << std::endl;
+		} else
+			std::cout << "index you entered is invalid" << std::endl;
 	}
 }
 
 void	menu(void)
 {
-	std::cout << std::endl;
-	std::cout << "PHONE BOOK IS OPEN" << std::endl;
-	std::cout << std::endl;
+	std::cout << "PHONE BOOK IS OPEN" << std::endl << std::endl;
 	std::cout << "OPTIONS:" << std::endl;
 	std::cout << "ADD    - add a contact" << std::endl;
 	std::cout << "SEARCH - view contacts" << std::endl;
-	std::cout << "EXIT   - close phone book" << std::endl;
-	std::cout << std::endl;
+	std::cout << "EXIT   - close phone book" << std::endl << std::endl;
 }
 
 int	error()
@@ -129,15 +126,14 @@ int main()
         if (input == "ADD") {
             if (add(phonebook, i))
 				return (error());
-		}
-        else if (input == "SEARCH") {
+		} else if (input == "SEARCH") {
             if (search(phonebook, i))
 				return (error());
-		}
-        else if (input == "EXIT") {
+		} else if (input == "EXIT") {
             std::cout << "PHONE BOOK IS CLOSED" << std::endl;
             return (0);
-        }
+        } else
+			std::cout << std::endl << "valid options are: ADD/SEARCH/EXIT" << std::endl;
     }
     return (0);
 }

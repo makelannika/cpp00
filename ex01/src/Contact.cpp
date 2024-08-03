@@ -6,15 +6,17 @@
 /*   By: amakela <amakela@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:11:05 by amakela           #+#    #+#             */
-/*   Updated: 2024/08/02 23:07:09 by amakela          ###   ########.fr       */
+/*   Updated: 2024/08/03 15:42:45 by amakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
+#include <iostream>
 
 int	Contact::set_info(std::string type, std::string info) 
 {
 	if (info.empty() || info.find_first_not_of(" \t\n\v\f\r") == std::string::npos) {
+		std::cout << type << " can not be left blank" << std::endl;
 		return (1);
 	}
 	if (type == "first name")
@@ -28,8 +30,10 @@ int	Contact::set_info(std::string type, std::string info)
 	else if (type == "number") {
 		if (info.find_first_not_of("0123456789") == std::string::npos)
 			number = info;
-		else
+		else {
+			std::cout << "number needs to be in digits only format" << std::endl;
 			return (1);
+		}
 	}
 	return (0);
 }
